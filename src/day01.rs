@@ -42,11 +42,11 @@ mod test {
 
     #[test]
     fn test_01_a() {
-        assert_eq!(puzzle_a(input), 7)
+        assert_eq!(puzzle_a(INPUT), 7)
     }
 
     #[test]
     fn test_01_b() {
-        assert_eq!(puzzle_b(input), 5)
+        assert_eq!(puzzle_b(INPUT), 5)
     }
 }
