@@ -1,4 +1,4 @@
-pub(crate) fn puzzle_a(input: &str) -> u64 {
+pub(crate) fn puzzle_a(input: &str) -> i32 {
     let numbers: Vec<i32> = input.lines()
         .map(|line| line.parse().unwrap())
         .collect();
@@ -11,7 +11,7 @@ pub(crate) fn puzzle_a(input: &str) -> u64 {
     count
 }
 
-pub(crate) fn puzzle_b(input: &str) -> u64 {
+pub(crate) fn puzzle_b(input: &str) -> i32 {
     let numbers: Vec<i32> = input.lines()
         .map(|line| line.parse().unwrap())
         .collect();
