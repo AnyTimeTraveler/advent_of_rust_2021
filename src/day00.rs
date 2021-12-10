@@ -8,7 +8,7 @@ pub(crate) fn puzzle_b(input: &str) -> i32 {
 
 #[cfg(test)]
 mod test {
-    use crate::read_file;
+    use crate::read_input_file;
 
     use super::*;
 
@@ -29,7 +29,7 @@ mod test {
 
     #[test]
     fn actual_puzzle_a() {
-        println!("Puzzle {} a: {}", get_day(), puzzle_a(&read_file(get_day())));
+        println!("Puzzle {} a: {}", get_day(), puzzle_a(&read_input_file(get_day())));
     }
 
     #[test]
@@ -39,6 +39,6 @@ mod test {
 
     #[test]
     fn actual_puzzle_b() {
-        println!("Puzzle {} b: {}", get_day(), puzzle_b(&read_file(get_day())));
+        println!("Puzzle {} b: {}", get_day(), puzzle_b(&read_input_file(get_day())));
     }
 }

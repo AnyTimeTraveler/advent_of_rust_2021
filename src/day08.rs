@@ -97,12 +97,12 @@ fn count_certain_digits(t: (u8, u8, u8, u8)) -> i32 {
     counter
 }
 
-pub(crate) fn puzzle_b(input: &str) -> i32 {
+pub(crate) fn puzzle_b(input: &str) -> i64 {
     let lines: Vec<(u8, u8, u8, u8)> = input.split('\n').map(process_line).collect();
     let mut counter = 0;
 
     for (a, b, c, d) in lines {
-        let (a, b, c, d) = (a as i32, b as i32, c as i32, d as i32);
+        let (a, b, c, d) = (a as i64, b as i64, c as i64, d as i64);
         counter += a * 1000;
         counter += b * 100;
         counter += c * 10;
@@ -114,7 +114,8 @@ pub(crate) fn puzzle_b(input: &str) -> i32 {
 
 #[cfg(test)]
 mod test {
-    use crate::read_file;
+    use std::time::Instant;
+    use crate::{read_big_input_file, read_input_file};
 
     use super::*;
 
@@ -141,13 +142,13 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
         4,
         2
     ];
-    const RESULT_LINES_B:[i32; 10] = [
+    const RESULT_LINES_B:[i64; 10] = [
         8394, 9781, 1197, 9361, 4873, 8418, 4548, 1625, 8717, 4315,
     ];
     const RESULT_A: i32 = 2;
-    const RESULT_B: i32 = 8394;
+    const RESULT_B: i64 = 8394;
     const RESULT_LONGER_A: i32 = 26;
-    const RESULT_LONGER_B: i32 = 61229;
+    const RESULT_LONGER_B: i64 = 61229;
 
     fn get_day() -> &'static str {
         let (_day, nr) = file!().split_at(7);
@@ -195,7 +196,17 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
 
     #[test]
     fn actual_puzzle_a() {
-        println!("Puzzle {} a: {}", get_day(), puzzle_a(&read_file(get_day())));
+        println!("Puzzle {} a: {}", get_day(), puzzle_a(&read_input_file(get_day())));
+    }
+
+    #[test]
+    fn actual_puzzle_a_big_input() {
+        let big_input = read_big_input_file(get_day());
+        let start = Instant::now();
+        let result = puzzle_a(&big_input);
+        let end = Instant::now();
+        let duration = end - start;
+        println!("Puzzle {} a BIG INPUT: {} | {} ms", get_day(), result, duration.as_millis());
     }
 
     #[test]
@@ -220,6 +231,16 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
 
     #[test]
     fn actual_puzzle_b() {
-        println!("Puzzle {} b: {}", get_day(), puzzle_b(&read_file(get_day())));
+        println!("Puzzle {} b: {}", get_day(), puzzle_b(&read_input_file(get_day())));
+    }
+
+    #[test]
+    fn actual_puzzle_b_big_input() {
+        let big_input = read_big_input_file(get_day());
+        let start = Instant::now();
+        let result = puzzle_b(&big_input);
+        let end = Instant::now();
+        let duration = end - start;
+        println!("Puzzle {} b BIG INPUT: {} | {} ms", get_day(), result, duration.as_millis());
     }
 }
