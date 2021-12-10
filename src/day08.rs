@@ -76,7 +76,7 @@ fn process_line(line: &str) -> (u8, u8, u8, u8) {
 }
 
 pub(crate) fn puzzle_a(input: &str) -> i32 {
-    let lines: Vec<(u8, u8, u8, u8)> = input.split('\n').map(process_line).collect();
+    let lines: Vec<(u8, u8, u8, u8)> = input.trim().split('\n').map(process_line).collect();
     let mut counter = 0;
 
     for t in lines {
@@ -98,7 +98,7 @@ fn count_certain_digits(t: (u8, u8, u8, u8)) -> i32 {
 }
 
 pub(crate) fn puzzle_b(input: &str) -> i64 {
-    let lines: Vec<(u8, u8, u8, u8)> = input.split('\n').map(process_line).collect();
+    let lines: Vec<(u8, u8, u8, u8)> = input.trim().split('\n').map(process_line).collect();
     let mut counter = 0;
 
     for (a, b, c, d) in lines {
