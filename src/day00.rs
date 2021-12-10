@@ -39,6 +39,6 @@ mod test {
 
     #[test]
     fn actual_puzzle_b() {
-        println!("Puzzle {} b: {}", get_day(), puzzle_a(&read_file(get_day())));
+        println!("Puzzle {} b: {}", get_day(), puzzle_b(&read_file(get_day())));
     }
 }
