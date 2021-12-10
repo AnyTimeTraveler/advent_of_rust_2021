@@ -15,3 +15,4 @@ pub(crate) fn read_file(day :&str) -> String {
 mod day00;
 mod day01;
 mod day02;
+mod day08;
