@@ -4,7 +4,7 @@
 use std::fs::File;
 use std::io::Read;
 
-pub(crate) fn read_file(day: &str) -> String {
+pub(crate) fn read_input_file(day: &str) -> String {
     let mut file = File::open(format!("input/{}", day)).unwrap();
 
     let mut input = String::new();
